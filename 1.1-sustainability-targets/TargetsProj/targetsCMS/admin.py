@@ -1,25 +1,25 @@
 from django.contrib import admin
 
-from .models import Choice, Question
+from .models import Sequence, Playlist
 
 
-class ChoiceInline(admin.TabularInline):
-    model = Choice
+class SequenceInline(admin.TabularInline):
+    model = Sequence
     extra = 3
-    list_display = ["question_text", "pub_date", "was_published_recently"]
+    list_display = ["playlist_text", "pub_date", "was_published_recently"]
 
 
 
-class QuestionAdmin(admin.ModelAdmin):
+class PlaylistAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {"fields": ["question_text"]}),
+        (None, {"fields": ["playlist_text"]}),
         ("Date information", {"fields": ["pub_date"], "classes": ["collapse"]}),
     ]
     list_filter = ["pub_date"]
-    search_fields = ["question_text"]
-    inlines = [ChoiceInline]
+    search_fields = ["playlist_text"]
+    inlines = [SequenceInline]
 
 
-admin.site.register(Question, QuestionAdmin)
+admin.site.register(Playlist, PlaylistAdmin)
 
 # Register your models here.

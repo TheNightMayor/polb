@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'dataViz/style.css' %}">
+
+{% if latest_playlist_list %}
+    <ul>
+    {% for playlist in latest_playlist_list %}
+        <li><a href="{% url 'dataViz:detail' playlist.id %}">{{ playlist.playlist_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No data is available.</p>
+{% endif %}

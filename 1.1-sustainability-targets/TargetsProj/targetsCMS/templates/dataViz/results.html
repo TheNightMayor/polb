@@ -1,0 +1,9 @@
+<h1>{{ playlist.playlist_text }}</h1>
+
+<ul>
+{% for sequence in playlist.sequence_set.all %}
+    <li>{{ sequence.sequence_text }} -- {{ sequence.votes }} vote{{ sequence.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'dataViz:detail' playlist.id %}">Vote again?</a>
