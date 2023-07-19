@@ -1,6 +1,6 @@
 from django.apps import AppConfig
-
+from djongo import models
 
 class TargetscmsConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
+    id = models.BigAutoField(primary_key=True)
     name = 'targetsCMS'
