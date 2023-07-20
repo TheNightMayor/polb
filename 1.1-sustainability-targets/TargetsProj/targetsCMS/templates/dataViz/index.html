@@ -2,10 +2,10 @@
 
 <link rel="stylesheet" href="{% static 'dataViz/style.css' %}">
 
-{% if latest_playlist_list %}
+{% if playlist_list %}
     <ul>
-    {% for playlist in latest_playlist_list %}
-        <li><a href="{% url 'dataViz:detail' playlist.id %}">{{ playlist.playlist_text }}</a></li>
+    {% for playlist in playlist_list %}
+        <li><a href="{% url 'dataViz:detail' playlist.id %}">{{ playlist.PlaylistName }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

@@ -1,11 +1,11 @@
-<form action="{% url 'dataViz:vote' playlist.id %}" method="post">
+<form action="{% url 'dataViz:results' playlist.id %}" method="post">
     {% csrf_token %}
     <fieldset>
-        <legend><h1>{{ playlist.playlist_text }}</h1></legend>
+        <legend><h1>{{ playlist.PlaylistName }}</h1></legend>
         {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
         {% for sequence in playlist.sequence_set.all %}
             <input type="radio" name="sequence" id="sequence{{ forloop.counter }}" value="{{ sequence.id }}">
-            <label for="sequence{{ forloop.counter }}">{{ sequence.sequence_text }}</label><br>
+            <label for="sequence{{ forloop.counter }}">{{ sequence.Title }}</label><br>
         {% endfor %}
     </fieldset>
     <input type="submit" value="Vote">

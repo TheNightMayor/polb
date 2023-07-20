@@ -6,24 +6,22 @@ from django.contrib import admin
 
 
 class Playlist(models.Model):
-    playlist_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField("date published")
+    PlaylistName = models.CharField(max_length=50)
+    Active = models.BooleanField(null=True)
     def __str__(self):
-        return self.playlist_text
-    @admin.display(
-        boolean=True,
-        ordering="pub_date",
-        description="Published recently?",
-    )
-    def was_published_recently(self):
-        now = timezone.now()
-        return now - datetime.timedelta(days=1) <= self.pub_date <= now
-
+        return self.PlaylistName
 
 class Sequence(models.Model):
     playlist = models.ForeignKey(Playlist, on_delete=models.CASCADE)
-    sequence_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+    # mLayoutType = models.TextChoices()
+    Title = models.CharField(max_length=200)
+    Statement1 = models.TextField(max_length=1000, null=True)
+    Statement2 = models.TextField(max_length=1000, null=True)
+    Statement3 = models.TextField(max_length=1000, null=True)
+    OverlayAsset = models.CharField(max_length=100, null=True)
+    StatementOfPurpose = models.TextField(max_length=1000, null=True)
     def __str__(self):
-        return self.sequence_text
+        return self.Title
+    
+
 # Create your models here.

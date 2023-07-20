@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('DataViz/', include("targetsCMS.urls", namespace="DataViz")),
+    path('DataViz/', include("targetsCMS.urls", namespace="dataViz")),
     path('admin/', admin.site.urls),
     path("__debug__/", include("debug_toolbar.urls")),
 ]

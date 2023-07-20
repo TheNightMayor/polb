@@ -3,23 +3,19 @@ from django.contrib import admin
 from .models import Sequence, Playlist
 
 
-class SequenceInline(admin.TabularInline):
+class SequenceInline(admin.StackedInline):
     model = Sequence
-    extra = 3
-    list_display = ["playlist_text", "pub_date", "was_published_recently"]
-
+    extra = 0
+    list_display = ["PlaylistName"]
 
 
 class PlaylistAdmin(admin.ModelAdmin):
-    fieldsets = [
-        (None, {"fields": ["playlist_text"]}),
-        ("Date information", {"fields": ["pub_date"], "classes": ["collapse"]}),
-    ]
-    list_filter = ["pub_date"]
-    search_fields = ["playlist_text"]
+    fieldsets = ((None, {"fields": (tuple(["PlaylistName", "Active"]),),}),)
+    search_fields = ["PlaylistName"]
     inlines = [SequenceInline]
+    list_display = ["PlaylistName", "Active"]
 
 
 admin.site.register(Playlist, PlaylistAdmin)
-
+admin.site.register(Sequence)
 # Register your models here.
