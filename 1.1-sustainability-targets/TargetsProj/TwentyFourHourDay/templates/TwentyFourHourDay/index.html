@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'TwentyFourHourDay/style.css' %}">
+
+{% if playlist_list %}
+    <ul>
+    {% for playlist in playlist_list %}
+        <li><a href="{% url 'TwentyFourHourDay:detail' playlist.id %}">{{ playlist.Playlist_Name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No data is available.</p>
+{% endif %}

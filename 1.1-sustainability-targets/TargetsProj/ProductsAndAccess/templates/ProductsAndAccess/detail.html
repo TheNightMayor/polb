@@ -1,0 +1,12 @@
+<form action="{% url 'ProductsAndAccess:results' product.id %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>{{ product.Product_Name }}</h1></legend>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% for route in product.route_set.all %}
+            <input type="radio" name="route" id="route{{ forloop.counter }}" value="{{ route.id }}">
+            <label for="route{{ forloop.counter }}">{{ route.Title }}</label><br>
+        {% endfor %}
+    </fieldset>
+    <input type="submit" value="Vote">
+    </form>

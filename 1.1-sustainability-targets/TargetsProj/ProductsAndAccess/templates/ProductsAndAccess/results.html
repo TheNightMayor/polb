@@ -1,0 +1,10 @@
+<h1>{{ product.Product_Name }}</h1>
+
+<ul>
+{% for route in product.route_set.all %}
+<h2><li>{{ route.Title }} </h2>
+        <ol><li>{{ route.Description }}
+{% endfor %}
+</ul>
+
+<a href="{% url 'ProductsAndAccess:detail' product.id %}">Back</a>

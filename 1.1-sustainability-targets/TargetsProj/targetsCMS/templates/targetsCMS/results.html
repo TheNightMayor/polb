@@ -1,0 +1,10 @@
+<h1>{{ playlist.Playlist_Name }}</h1>
+
+<ul>
+{% for sequence in playlist.sequence_set.all %}
+<h2><li>{{ sequence.Title }} </h2>
+        <ol><li>{{ sequence.Statement_1 }}<li>{{ sequence.Statement_2 }}<li>{{ sequence.Statement_3 }}
+{% endfor %}
+</ul>
+
+<a href="{% url 'targetsCMS:detail' playlist.id %}">Back</a>

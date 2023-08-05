@@ -32,7 +32,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "debug_toolbar",
+    'ProductsAndAccess.apps.ProductsandaccessConfig',
     'targetsCMS.apps.TargetscmsConfig',
+    'TwentyFourHourDay.apps.TwentyfourhourdayConfig',
     "django.contrib.staticfiles",
     'django.contrib.admin',
     'django.contrib.auth',

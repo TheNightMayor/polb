@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'targetsCMS/style.css' %}">
+
+{% if playlist_list %}
+    <ul>
+    {% for playlist in playlist_list %}
+        <li><a href="{% url 'targetsCMS:detail' playlist.id %}">{{ playlist.Playlist_Name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No data is available.</p>
+{% endif %}
