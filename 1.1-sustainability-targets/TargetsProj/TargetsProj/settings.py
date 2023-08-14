@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "debug_toolbar",
+    'BeneficialImpacts.apps.BeneficialimpactsConfig',
     'ProductsAndAccess.apps.ProductsandaccessConfig',
     'targetsCMS.apps.TargetscmsConfig',
     'TwentyFourHourDay.apps.TwentyfourhourdayConfig',

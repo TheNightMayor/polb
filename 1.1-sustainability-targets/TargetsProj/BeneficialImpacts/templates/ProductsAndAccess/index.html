@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'ProductsAndAccess/style.css' %}">
+
+{% if product_list %}
+    <ul>
+    {% for product in product_list %}
+        <li><a href="{% url 'ProductsAndAccess:detail' product.id %}">{{ product.Product_Name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No data is available.</p>
+{% endif %}

@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
+    path('BeneficialImpacts/', include("BeneficialImpacts.urls", namespace="BeneficialImpacts")),
     path('ProductsAndAccess/', include("ProductsAndAccess.urls", namespace="ProductsAndAccess")),
     path('TwentyFourHourDay/', include("TwentyFourHourDay.urls", namespace="TwentyFourHourDAy")),
     path('targetsCMS/', include("targetsCMS.urls", namespace="targetsCMS")),
