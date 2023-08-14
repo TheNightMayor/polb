@@ -23,15 +23,10 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Product
     template_name = "ProductsAndAccess/detail.html"
-    def get_queryset(self):
-        """
-        Excludes any products that aren't published yet.
-        """
-
-class ResultsView(generic.DetailView):
-    model = Product
-    template_name = "ProductsAndAccess/results.html"
-
+    """
+    Excludes any products that aren't published yet.
+    """
+        
 
 def index(request):
     product_list = Product.objects.order_by("-id")[:5]

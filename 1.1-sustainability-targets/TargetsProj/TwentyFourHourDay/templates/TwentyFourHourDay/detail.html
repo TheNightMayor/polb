@@ -1,12 +1,10 @@
-<form action="{% url 'TwentyFourHourDay:results' playlist.id %}" method="post">
-    {% csrf_token %}
-    <fieldset>
-        <legend><h1>{{ playlist.Playlist_Name }}</h1></legend>
-        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-        {% for sequence in playlist.sequence_set.all %}
-            <input type="radio" name="sequence" id="sequence{{ forloop.counter }}" value="{{ sequence.id }}">
-            <label for="sequence{{ forloop.counter }}">{{ sequence.Title }}</label><br>
-        {% endfor %}
-    </fieldset>
-    <input type="submit" value="Vote">
-    </form>
+<h1>{{ playlist.Playlist_Name }}</h1>
+
+<ul>
+{% for sequence in playlist.sequence_set.all %}
+<h2><li>{{ sequence.Title }} </h2>
+        <ol><li>{{ sequence.Statement }}
+{% endfor %}
+</ul>
+
+<a href="{% url 'TwentyFourHourDay:index' %}">Back</a>

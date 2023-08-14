@@ -1,9 +1,12 @@
 import datetime
 
 from djongo import models
+from django.utils import timezone
+from django.contrib import admin
 
 
 class Route(models.Model):
+    _id = models.ObjectIdField()
     Title = models.CharField(max_length=200) 
     Description = models.TextField(max_length=1000, null=True)
     Origins = models.TextChoices(
@@ -25,10 +28,11 @@ class Route(models.Model):
         default=None
     )
     def __str__(self):
-        return {self.Title}
+        return self.Title
     
     
 class Product(models.Model):
+    _id = models.ObjectIdField()
     route = models.ForeignKey(
         Route,
         on_delete=models.CASCADE,

@@ -23,14 +23,9 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Playlist
     template_name = "TwentyFourHourDay/detail.html"
-    def get_queryset(self):
-        """
-        Excludes any playlists that aren't published yet.
-        """
-
-class ResultsView(generic.DetailView):
-    model = Playlist
-    template_name = "TwentyFourHourDay/results.html"
+    """
+    Excludes any playlists that aren't published yet.
+    """
 
 
 def index(request):

@@ -5,7 +5,7 @@ from .models import Route, Product
 class ProductInline(admin.StackedInline):
     model = Product
     extra = 0
-    list_display = ["Route_Name"]
+    list_display = ["Product_Name"]
 
 class ProductAdmin(admin.ModelAdmin):
     fieldsets = ((None, {"fields": (tuple(["Product_Name", "Product_Type"]),"Description", "Media"),}),)
@@ -16,7 +16,7 @@ class ProductAdmin(admin.ModelAdmin):
 class RouteAdmin(admin.ModelAdmin):
     fieldsets = [(None, {'fields': ['Title', 'Description', 'Origin', 'Destination']})]
     search_fields = ['Origin', 'Destination']
-    list_display = ['Origin', 'Destination']
+    list_display = ['Title', 'Origin', 'Destination']
     inlines = [ProductInline]
     
 admin.site.register(Product, ProductAdmin)

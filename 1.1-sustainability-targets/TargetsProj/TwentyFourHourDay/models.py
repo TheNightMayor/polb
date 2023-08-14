@@ -1,9 +1,11 @@
 import datetime
 
 from djongo import models
-
+from django.utils import timezone
+from django.contrib import admin
 
 class Playlist(models.Model):
+    _id = models.ObjectIdField()
     Playlist_Name = models.CharField(null=True, max_length=50)
     Active = models.BooleanField(null=True, default=False)
     def __str__(self):
@@ -11,6 +13,7 @@ class Playlist(models.Model):
     
     
 class Sequence(models.Model):
+    _id = models.ObjectIdField()
     playlist = models.ForeignKey(Playlist, on_delete=models.CASCADE)
     class Layout_Type(models.TextChoices):
         LAYOUT_ONE = 'one'
